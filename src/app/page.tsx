@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
@@ -29,20 +30,32 @@ export default async function InicioPage() {
             <p className="mt-4 text-lg text-slate-300">{candidato.lemaPrincipal}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button href="/plan-agua">Conoce el plan</Button>
-              <Button href="/participa" variant="outline" className="border-white text-white hover:border-primary-400 hover:text-primary-300">
+              <Button href="/participa" variant="outline" className="bg-transparent border-white text-white hover:border-primary-400 hover:text-primary-300">
                 Sigue la campaña
               </Button>
             </div>
           </div>
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-primary-600 to-primary-900">
-            <div className="flex h-full items-center justify-center p-8 text-center text-white/70">
-              <p className="text-sm">
-                Fotografía real y reciente del candidato — pendiente de carga por el equipo de campaña.
-              </p>
-            </div>
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-primary-900">
+            <Image
+              src="/images/candidato-retrato.webp"
+              alt="José Luis Sandoval Luque"
+              fill
+              priority
+              className="object-cover"
+            />
           </div>
         </Container>
       </section>
+
+      {/* Banner de campaña */}
+      <div className="relative aspect-[2000/520] w-full">
+        <Image
+          src="/images/hero-banner.webp"
+          alt="José Luis Sandoval Luque — Honradez, salud y educación. Agua para Nasca. Trabajo para su gente."
+          fill
+          className="object-cover"
+        />
+      </div>
 
       {/* Bloque de confianza */}
       <Section className="py-12">
@@ -138,7 +151,7 @@ export default async function InicioPage() {
               <Button
                 href="/transparencia"
                 variant="outline"
-                className="border-white text-white hover:border-primary-400 hover:text-primary-300"
+                className="bg-transparent border-white text-white hover:border-primary-400 hover:text-primary-300"
               >
                 Ver documentos oficiales
               </Button>

@@ -3,6 +3,17 @@ import { Section } from "@/components/ui/Section";
 import { ContactForm } from "@/components/ContactForm";
 import { pendientes } from "@/data/perfil";
 
+const RED_LABELS: Record<keyof typeof pendientes.redes, string> = {
+  facebook: "Facebook",
+  instagram: "Instagram",
+  tiktok: "TikTok",
+  youtube: "YouTube",
+};
+
+function isConfirmado(valor: string) {
+  return !valor.startsWith("[PENDIENTE");
+}
+
 export const metadata: Metadata = {
   title: "Participa",
   description: "Envía tu propuesta, súmate como voluntario o contáctate con la campaña de José Luis Sandoval Luque.",
@@ -33,10 +44,28 @@ export default function ParticipaPage() {
                 <dd>{pendientes.correoContacto}</dd>
               </div>
               <div>
-                <dt className="font-medium text-ink">Facebook / Instagram / TikTok / YouTube</dt>
-                <dd>
-                  {pendientes.redes.facebook} · {pendientes.redes.instagram} · {pendientes.redes.tiktok} ·{" "}
-                  {pendientes.redes.youtube}
+                <dt className="font-medium text-ink">Redes sociales</dt>
+                <dd className="space-x-1">
+                  {(Object.keys(pendientes.redes) as (keyof typeof pendientes.redes)[]).map((red, i, arr) => {
+                    const valor = pendientes.redes[red];
+                    return (
+                      <span key={red}>
+                        {isConfirmado(valor) ? (
+                          <a
+                            href={valor}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-semibold text-primary-700 hover:underline"
+                          >
+                            {RED_LABELS[red]}
+                          </a>
+                        ) : (
+                          <span className="text-slate-400">{RED_LABELS[red]} (pendiente)</span>
+                        )}
+                        {i < arr.length - 1 && " · "}
+                      </span>
+                    );
+                  })}
                 </dd>
               </div>
             </dl>

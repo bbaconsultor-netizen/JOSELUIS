@@ -249,7 +249,7 @@ export const pendientes = {
   correoContacto: "[PENDIENTE: correo de contacto]",
   whatsapp: "[PENDIENTE: WhatsApp autorizado]",
   redes: {
-    facebook: "[PENDIENTE: URL Facebook oficial]",
+    facebook: "https://www.facebook.com/profile.php?id=61588426972242",
     instagram: "[PENDIENTE: URL Instagram oficial]",
     tiktok: "[PENDIENTE: URL TikTok oficial]",
     youtube: "[PENDIENTE: URL YouTube oficial]",

@@ -191,6 +191,25 @@ async function main() {
       create: { ...p, status: "PUBLICADO", publishedAt: new Date() },
     });
   }
+
+  await prisma.noticia.upsert({
+    where: { slug: "inauguracion-de-base-jiron-italia" },
+    update: {},
+    create: {
+      titular: "José Luis Sandoval inauguró base de campaña en Jirón Italia",
+      slug: "inauguracion-de-base-jiron-italia",
+      bajada:
+        "Vecinos de Nasca acompañaron la apertura de un nuevo espacio de campaña, donde el candidato reafirmó sus ejes: honradez, salud, educación y agua para la provincia.",
+      cuerpo:
+        "El jueves 13 de agosto, José Luis Sandoval Luque encabezó la inauguración de una nueva base de campaña en Jirón Italia, Nasca, con la participación de vecinos y simpatizantes.\n\nDurante la actividad, el candidato reiteró los ejes centrales de su propuesta: honradez, salud y educación, con el Plan Agua para Nasca como prioridad. \"Trabajo para su gente\" fue el mensaje central de la jornada.\n\nEste tipo de encuentros forma parte de la agenda territorial de la campaña en los cinco distritos de la provincia.",
+      distrito: "Nasca",
+      autor: "Equipo de campaña",
+      foto: "/images/noticia-inauguracion-base.webp",
+      pieDeFoto: "Jirón Italia, Nasca — 13 de agosto de 2026.",
+      status: "PUBLICADO",
+      publishedAt: new Date("2026-08-13T18:00:00-05:00"),
+    },
+  });
 }
 
 main()

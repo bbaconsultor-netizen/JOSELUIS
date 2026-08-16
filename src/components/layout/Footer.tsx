@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Logo } from "@/components/ui/Logo";
 import { Container } from "@/components/ui/Container";
 import { formatDate } from "@/lib/utils";
+import { pendientes } from "@/data/perfil";
 
 const COLUMNS = [
   {
@@ -41,6 +42,16 @@ export function Footer() {
               Candidatura a la Alcaldía Provincial de Nasca · ERM 2026.
               &ldquo;Agua para Nasca. Trabajo para su gente.&rdquo;
             </p>
+            {!pendientes.redes.facebook.startsWith("[PENDIENTE") && (
+              <a
+                href={pendientes.redes.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block text-sm font-semibold text-primary-400 hover:text-primary-300"
+              >
+                Síguenos en Facebook →
+              </a>
+            )}
           </div>
 
           {COLUMNS.map((col) => (

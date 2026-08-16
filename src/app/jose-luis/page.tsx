@@ -54,7 +54,7 @@ export default function JoseLuisPage() {
             al momento de la consulta.
           </p>
           <div className="mt-6">
-            <Button href="/transparencia" variant="outline" className="border-white text-white hover:border-primary-400 hover:text-primary-300">
+            <Button href="/transparencia" variant="outline" className="bg-transparent border-white text-white hover:border-primary-400 hover:text-primary-300">
               Ver propuestas
             </Button>
           </div>
