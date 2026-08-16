@@ -43,6 +43,8 @@ export function PropuestaForm({
       etapas: "",
       fuente: "",
       responsable: "",
+      imagen: "",
+      imagenIlustrativa: false,
       status: "BORRADOR",
     },
   });
@@ -144,6 +146,25 @@ export function PropuestaForm({
           <input {...register("responsable")} className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm" />
           {errors.responsable && <p className="mt-1 text-sm text-red-600">{errors.responsable.message}</p>}
         </div>
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium text-ink">Imagen de portada (URL, opcional)</label>
+        <input {...register("imagen")} className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm" />
+      </div>
+
+      <div className="flex items-start gap-2">
+        <input
+          id="imagenIlustrativa"
+          type="checkbox"
+          {...register("imagenIlustrativa")}
+          className="mt-1 h-4 w-4 rounded border-slate-300 text-primary-600 focus:ring-primary-500"
+        />
+        <label htmlFor="imagenIlustrativa" className="text-sm text-slate-600">
+          Es una imagen ilustrativa (generada con IA o de archivo), no una fotografía documental del hecho.
+          Se marcará visiblemente como &ldquo;Imagen ilustrativa&rdquo; en el sitio público — regla
+          obligatoria del brief para evitar simular hechos reales.
+        </label>
       </div>
 
       <div>

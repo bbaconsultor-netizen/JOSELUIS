@@ -73,6 +73,9 @@ async function main() {
     etapas: string;
     fuente: string;
     responsable: string;
+    imagen?: string;
+    imagenIlustrativa?: boolean;
+    status?: "PUBLICADO" | "EN_VERIFICACION";
   }[] = [
     {
       titulo: "Diagnóstico y transparencia del agua",
@@ -182,13 +185,61 @@ async function main() {
       fuente: "Plan Estratégico de Campaña — José Luis Sandoval Luque (v. 06.08.2026)",
       responsable: "Equipo programático",
     },
+    {
+      titulo: "Electrificación solar de pozos",
+      slug: "electrificacion-solar-pozos",
+      eje: "AGUA_SANEAMIENTO",
+      resumen: "Evaluar la incorporación progresiva de energía solar para reducir costos operativos de pozos.",
+      problema: "El costo energético de operar los pozos afecta la sostenibilidad del servicio de agua.",
+      accion: "Evaluar la incorporación progresiva de paneles solares para reducir costos operativos de pozos, donde sea técnica y económicamente viable.",
+      competencia: "Evaluación y gestión municipal, en coordinación con la entidad prestadora del servicio.",
+      etapas: "Evaluación técnica y económica → proyecto piloto → incorporación progresiva.",
+      fuente: "Plan Estratégico de Campaña — José Luis Sandoval Luque (v. 06.08.2026)",
+      responsable: "Equipo programático",
+      imagen: "/images/propuestas/electrificacion-pozos.webp",
+      imagenIlustrativa: true,
+    },
+    {
+      titulo: "Riego tecnificado para pequeños productores",
+      slug: "riego-tecnificado-agricultores",
+      eje: "AGUA_SANEAMIENTO",
+      resumen: "Instalar una mesa técnica provincial y gestionar cofinanciamiento para riego tecnificado de pequeños productores.",
+      problema: "Los pequeños productores agrícolas enfrentan pérdidas de agua por sistemas de riego poco eficientes.",
+      accion: "Instalar una mesa técnica provincial y gestionar cofinanciamiento para proyectos de riego tecnificado dirigidos a pequeños productores.",
+      competencia: "Gestionar y cofinanciar en coordinación con aliados técnicos y financieros. Definir aliados, criterios y fondos.",
+      etapas: "Instalación de mesa técnica → identificación de aliados y fondos → proyectos piloto de riego tecnificado.",
+      fuente: "Plan Estratégico de Campaña — José Luis Sandoval Luque (v. 06.08.2026)",
+      responsable: "Equipo programático",
+      imagen: "/images/propuestas/canales-riego.webp",
+      imagenIlustrativa: true,
+    },
+    {
+      titulo: "Defensas ribereñas y mantenimiento de caminos rurales",
+      slug: "defensas-riberenas-caminos-rurales",
+      eje: "AGUA_SANEAMIENTO",
+      resumen: "Gestionar defensas ribereñas y el mantenimiento de caminos rurales en coordinación con las entidades competentes.",
+      problema: "Los caminos rurales y las riberas de los cursos de agua requieren mantenimiento preventivo para proteger la actividad agrícola.",
+      accion: "Gestionar la construcción de defensas ribereñas y el mantenimiento de caminos rurales en coordinación con las entidades competentes.",
+      competencia: "VERIFICAR alcance de competencia municipal y coordinación con Gobierno Regional/ANA antes de publicar como compromiso cerrado.",
+      etapas: "Diagnóstico de tramos críticos → gestión de expediente → ejecución coordinada.",
+      fuente: "Material de campaña (carpeta AGRO/CARRUSEL) — pendiente de contraste con el Plan Estratégico de Campaña.",
+      responsable: "Equipo programático",
+      imagen: "/images/propuestas/defensas-riberenas.webp",
+      imagenIlustrativa: true,
+      status: "EN_VERIFICACION",
+    },
   ];
 
   for (const p of propuestas) {
+    const { status, ...rest } = p;
     await prisma.propuesta.upsert({
       where: { slug: p.slug },
       update: {},
-      create: { ...p, status: "PUBLICADO", publishedAt: new Date() },
+      create: {
+        ...rest,
+        status: status ?? "PUBLICADO",
+        publishedAt: (status ?? "PUBLICADO") === "PUBLICADO" ? new Date() : null,
+      },
     });
   }
 

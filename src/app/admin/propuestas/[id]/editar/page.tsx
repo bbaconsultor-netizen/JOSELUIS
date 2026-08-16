@@ -23,6 +23,8 @@ export default async function EditarPropuestaPage({ params }: { params: { id: st
             etapas: propuesta.etapas,
             fuente: propuesta.fuente,
             responsable: propuesta.responsable,
+            imagen: propuesta.imagen || "",
+            imagenIlustrativa: propuesta.imagenIlustrativa,
             status: propuesta.status,
           }}
         />

@@ -25,6 +25,7 @@ export const metadata: Metadata = {
     siteName: "José Luis Sandoval Luque",
     locale: "es_PE",
     type: "website",
+    images: [{ url: "/images/og-campana.webp", width: 1200, height: 630 }],
   },
 };
 

@@ -27,6 +27,8 @@ export const propuestaSchema = z.object({
   etapas: z.string().min(3, "Indica las etapas"),
   fuente: z.string().min(3, "Indica la fuente"),
   responsable: z.string().min(2, "Indica el responsable"),
+  imagen: z.string().optional().or(z.literal("")),
+  imagenIlustrativa: z.boolean().optional(),
   status: z.enum(contentStatusValues),
 });
 

@@ -55,18 +55,20 @@ model AdminUser {
 // problema, acción, competencia institucional y fuente — regla obligatoria
 // del brief para no prometer fuera de competencia municipal.
 model Propuesta {
-  id           String        @id @default(cuid())
-  titulo       String
-  slug         String        @unique
-  eje          Eje
-  resumen      String
-  problema     String        @db.Text
-  accion       String        @db.Text
-  competencia  String
-  etapas       String        @db.Text
-  fuente       String
-  responsable  String
-  status       ContentStatus @default(BORRADOR)
+  id              String        @id @default(cuid())
+  titulo          String
+  slug            String        @unique
+  eje             Eje
+  resumen         String
+  problema        String        @db.Text
+  accion          String        @db.Text
+  competencia     String
+  etapas          String        @db.Text
+  fuente          String
+  responsable     String
+  imagen          String?
+  imagenIlustrativa Boolean     @default(false)
+  status          ContentStatus @default(BORRADOR)
   publishedAt  DateTime?
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt

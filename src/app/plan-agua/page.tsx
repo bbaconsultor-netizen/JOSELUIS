@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { faqs, planAguaComponentes, planAguaResumen } from "@/data/perfil";
@@ -29,6 +30,34 @@ export default function PlanAguaPage() {
           &ldquo;cofinanciar&rdquo; o &ldquo;ejecutar&rdquo; según la competencia real. Ningún proyecto sin
           expediente, presupuesto o autorización se presenta como obra asegurada.
         </p>
+      </Section>
+
+      <Section eyebrow="Agricultura" title="Agua para el campo nasqueño">
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-slate-100">
+            <Image
+              src="/images/propuestas/agricultores-grupo.webp"
+              alt="José Luis Sandoval con agricultores de Nasca (imagen ilustrativa)"
+              fill
+              className="object-cover"
+            />
+            <span className="absolute bottom-3 left-3 rounded-full bg-black/70 px-3 py-1 text-xs font-medium text-white">
+              Imagen ilustrativa
+            </span>
+          </div>
+          <div>
+            <p className="text-lg text-slate-700">
+              Una mesa técnica provincial para gestionar cofinanciamiento de riego tecnificado, y una
+              evaluación de electrificación solar de pozos para reducir costos operativos: dos líneas de
+              trabajo del Plan Agua enfocadas en la agricultura de los cinco distritos.
+            </p>
+            <div className="mt-6">
+              <Button href="/propuestas#agua-saneamiento" variant="outline">
+                Ver estas propuestas en detalle
+              </Button>
+            </div>
+          </div>
+        </div>
       </Section>
 
       <Section eyebrow="Preguntas frecuentes" title="Lo que debes saber sobre el agua en Nasca">

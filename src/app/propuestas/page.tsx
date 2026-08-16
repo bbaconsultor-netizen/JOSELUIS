@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
@@ -50,11 +51,23 @@ export default async function PropuestasPage() {
               ) : (
                 <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                   {items.map((p) => (
-                    <div key={p.id} className="flex flex-col rounded-xl border border-slate-200 bg-white p-5">
-                      <Badge className="w-fit">{p.competencia}</Badge>
-                      <h3 className="mt-3 font-display text-base font-semibold text-ink">{p.titulo}</h3>
-                      <p className="mt-2 line-clamp-3 flex-1 text-sm text-slate-600">{p.resumen}</p>
-                      <p className="mt-3 text-xs text-slate-400">Etapas: {p.etapas}</p>
+                    <div key={p.id} className="flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white">
+                      {p.imagen && (
+                        <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                          <Image src={p.imagen} alt={p.titulo} fill className="object-cover" />
+                          {p.imagenIlustrativa && (
+                            <span className="absolute bottom-2 left-2 rounded-full bg-black/70 px-2.5 py-1 text-[11px] font-medium text-white">
+                              Imagen ilustrativa
+                            </span>
+                          )}
+                        </div>
+                      )}
+                      <div className="flex flex-1 flex-col p-5">
+                        <Badge className="w-fit">{p.competencia}</Badge>
+                        <h3 className="mt-3 font-display text-base font-semibold text-ink">{p.titulo}</h3>
+                        <p className="mt-2 line-clamp-3 flex-1 text-sm text-slate-600">{p.resumen}</p>
+                        <p className="mt-3 text-xs text-slate-400">Etapas: {p.etapas}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
