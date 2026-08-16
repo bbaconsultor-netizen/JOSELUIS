@@ -48,10 +48,10 @@ export default async function InicioPage() {
       </section>
 
       {/* Banner de campaña */}
-      <div className="relative aspect-[2000/520] w-full">
+      <div className="relative aspect-[2032/774] w-full">
         <Image
           src="/images/hero-banner.webp"
-          alt="José Luis Sandoval Luque — Honradez, salud y educación. Agua para Nasca. Trabajo para su gente."
+          alt="José Luis Sandoval Luque — Candidato a la Alcaldía Provincial de Nasca. Fuerza Popular. Agua para Nasca. Trabajo para su gente."
           fill
           className="object-cover"
         />
