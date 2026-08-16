@@ -1,0 +1,134 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// Flujo editorial de la Guía de Producto (sección 5): Borrador -> En
+// verificación -> Aprobado -> Publicado -> Desactualizado. Las páginas
+// públicas solo leen status: PUBLICADO.
+enum ContentStatus {
+  BORRADOR
+  EN_VERIFICACION
+  APROBADO
+  PUBLICADO
+  DESACTUALIZADO
+}
+
+enum Eje {
+  AGUA_SANEAMIENTO
+  TRABAJO_ECONOMIA
+  TURISMO
+  SEGURIDAD
+  TRANSPARENCIA
+}
+
+enum LeadTipo {
+  PROPUESTA
+  VOLUNTARIADO
+  CONSULTA_PRENSA
+  OTRO
+}
+
+enum LeadStatus {
+  NUEVO
+  CONTACTADO
+  EN_PROCESO
+  CERRADO
+}
+
+// Lista blanca de administradores. Sin contraseñas: el callback signIn de
+// NextAuth verifica el email contra esta tabla.
+model AdminUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  role      String   @default("admin")
+  createdAt DateTime @default(now())
+}
+
+// Una propuesta por tarjeta (sección 6 de la Guía). Cada una distingue
+// problema, acción, competencia institucional y fuente — regla obligatoria
+// del brief para no prometer fuera de competencia municipal.
+model Propuesta {
+  id           String        @id @default(cuid())
+  titulo       String
+  slug         String        @unique
+  eje          Eje
+  resumen      String
+  problema     String        @db.Text
+  accion       String        @db.Text
+  competencia  String
+  etapas       String        @db.Text
+  fuente       String
+  responsable  String
+  status       ContentStatus @default(BORRADOR)
+  publishedAt  DateTime?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model Distrito {
+  id             String        @id @default(cuid())
+  nombre         String
+  slug           String        @unique
+  introduccion   String        @db.Text
+  necesidades    String        @db.Text
+  prioridades    String        @db.Text
+  fotografia     String?
+  fechaRevision  String
+  status         ContentStatus @default(BORRADOR)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+// Solo actividades futuras se muestran en /agenda; se retiran de portada
+// automáticamente al vencer (filtro por `fecha` en la query pública).
+model Evento {
+  id          String        @id @default(cuid())
+  titulo      String
+  fecha       DateTime
+  lugar       String
+  referencia  String?
+  mapaUrl     String?
+  contacto    String?
+  status      ContentStatus @default(BORRADOR)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Noticia {
+  id          String        @id @default(cuid())
+  titular     String
+  slug        String        @unique
+  bajada      String
+  cuerpo      String        @db.Text // Markdown, renderizado con react-markdown
+  distrito    String?
+  autor       String
+  foto        String?
+  pieDeFoto   String?
+  status      ContentStatus @default(BORRADOR)
+  publishedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+// Leads del formulario Participa/Contacto. El envío de email es best-effort
+// — este registro se crea SIEMPRE, incluso si Resend falla.
+model ContactLead {
+  id        String     @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  distrito  String?
+  tipo      LeadTipo   @default(OTRO)
+  message   String     @db.Text
+  status    LeadStatus @default(NUEVO)
+  notes     String?    @db.Text
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
