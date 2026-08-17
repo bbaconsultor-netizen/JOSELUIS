@@ -2,7 +2,6 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/auth";
-import { prisma } from "@/lib/prisma";
 import { SignOutButton } from "@/components/admin/SignOutButton";
 
 const ADMIN_LINKS = [
@@ -18,11 +17,6 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   const email = session?.user?.email?.toLowerCase();
 
   if (!email) {
-    redirect("/login");
-  }
-
-  const admin = await prisma.adminUser.findUnique({ where: { email } });
-  if (!admin) {
     redirect("/login");
   }
 

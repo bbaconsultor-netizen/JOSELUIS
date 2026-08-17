@@ -1,20 +1,17 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/auth";
-import { prisma } from "@/lib/prisma";
 
-type AdminCheck = { ok: true; email: string } | { ok: false; status: 401 | 403; error: string };
+type AdminCheck = { ok: true; email: string } | { ok: false; status: 401; error: string };
 
+// signIn() en auth.ts ya valida cada proveedor (Credentials verifica la
+// clave, Google verifica la lista blanca AdminUser). Si existe sesión, es de
+// confianza — no hace falta repetir el chequeo contra la base de datos aquí.
 export async function requireAdmin(): Promise<AdminCheck> {
   const session = await getServerSession(authOptions);
-  const email = session?.user?.email?.toLowerCase();
+  const email = session?.user?.email;
 
   if (!email) {
     return { ok: false, status: 401, error: "Debes iniciar sesión." };
-  }
-
-  const admin = await prisma.adminUser.findUnique({ where: { email } });
-  if (!admin) {
-    return { ok: false, status: 403, error: "No autorizado." };
   }
 
   return { ok: true, email };
