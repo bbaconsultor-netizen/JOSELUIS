@@ -65,6 +65,15 @@ export const noticiaSchema = z.object({
   status: z.enum(contentStatusValues),
 });
 
+export const videoSchema = z.object({
+  titulo: z.string().min(3, "El título es muy corto"),
+  youtubeUrl: z.string().min(5, "Pega el link o ID del video de YouTube"),
+  descripcion: z.string().optional().or(z.literal("")),
+  distrito: z.string().optional().or(z.literal("")),
+  fecha: z.string().optional().or(z.literal("")),
+  status: z.enum(contentStatusValues),
+});
+
 export const contactSchema = z.object({
   name: z.string().min(2, "Indica tu nombre"),
   email: z.string().email("Correo inválido"),
@@ -77,6 +86,7 @@ export const contactSchema = z.object({
   }),
 });
 
+export type VideoInput = z.infer<typeof videoSchema>;
 export type PropuestaInput = z.infer<typeof propuestaSchema>;
 export type DistritoInput = z.infer<typeof distritoSchema>;
 export type EventoInput = z.infer<typeof eventoSchema>;

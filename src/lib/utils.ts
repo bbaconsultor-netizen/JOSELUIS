@@ -24,6 +24,26 @@ export function formatDate(date: Date | string) {
   }).format(new Date(date));
 }
 
+export function extractYoutubeId(input: string): string | null {
+  const trimmed = input.trim();
+  if (/^[a-zA-Z0-9_-]{11}$/.test(trimmed)) return trimmed;
+
+  try {
+    const url = new URL(trimmed);
+    if (url.hostname.includes("youtu.be")) {
+      return url.pathname.slice(1) || null;
+    }
+    if (url.hostname.includes("youtube.com")) {
+      if (url.pathname === "/watch") return url.searchParams.get("v");
+      if (url.pathname.startsWith("/shorts/")) return url.pathname.split("/")[2] || null;
+      if (url.pathname.startsWith("/embed/")) return url.pathname.split("/")[2] || null;
+    }
+  } catch {
+    return null;
+  }
+  return null;
+}
+
 export function formatDateTime(date: Date | string) {
   return new Intl.DateTimeFormat("es-PE", {
     day: "numeric",

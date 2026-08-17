@@ -119,6 +119,22 @@ model Noticia {
   updatedAt   DateTime      @updatedAt
 }
 
+// Galería de videos embebidos desde YouTube — sin archivos pesados
+// autoalojados, con portada y reproducción bajo demanda (requisito de
+// rendimiento del brief).
+model Video {
+  id          String        @id @default(cuid())
+  titulo      String
+  youtubeId   String
+  descripcion String?
+  distrito    String?
+  fecha       DateTime?
+  status      ContentStatus @default(BORRADOR)
+  publishedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
 // Leads del formulario Participa/Contacto. El envío de email es best-effort
 // — este registro se crea SIEMPRE, incluso si Resend falla.
 model ContactLead {

@@ -26,6 +26,7 @@ const COLUMNS = [
       { href: "/territorio", label: "Territorio" },
       { href: "/agenda", label: "Agenda" },
       { href: "/noticias", label: "Noticias" },
+      { href: "/videos", label: "Videos" },
     ],
   },
   {

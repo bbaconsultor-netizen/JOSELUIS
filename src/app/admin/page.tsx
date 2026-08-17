@@ -2,11 +2,12 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 
 export default async function AdminDashboard() {
-  const [propuestas, distritos, eventos, noticias, leads] = await Promise.all([
+  const [propuestas, distritos, eventos, noticias, videos, leads] = await Promise.all([
     prisma.propuesta.count(),
     prisma.distrito.count(),
     prisma.evento.count(),
     prisma.noticia.count(),
+    prisma.video.count(),
     prisma.contactLead.count({ where: { status: "NUEVO" } }),
   ]);
 
@@ -15,6 +16,7 @@ export default async function AdminDashboard() {
     { label: "Distritos", value: distritos, href: "/admin/distritos" },
     { label: "Eventos de agenda", value: eventos, href: "/admin/eventos" },
     { label: "Noticias", value: noticias, href: "/admin/noticias" },
+    { label: "Videos", value: videos, href: "/admin/videos" },
     { label: "Mensajes nuevos", value: leads, href: "/admin" },
   ];
 

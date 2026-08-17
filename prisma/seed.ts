@@ -243,6 +243,21 @@ async function main() {
     });
   }
 
+  const videos = [
+    { titulo: "Una nueva generación para Nasca", youtubeId: "z4i8R316y4E" },
+    { titulo: "Una nueva generación para Nasca", youtubeId: "Tkcq248qtes" },
+    { titulo: "¡Gracias, Cajuca!", youtubeId: "0LbZny8PzZI" },
+  ];
+
+  for (const v of videos) {
+    const existing = await prisma.video.findFirst({ where: { youtubeId: v.youtubeId } });
+    if (!existing) {
+      await prisma.video.create({
+        data: { ...v, status: "PUBLICADO", publishedAt: new Date() },
+      });
+    }
+  }
+
   await prisma.noticia.upsert({
     where: { slug: "inauguracion-de-base-jiron-italia" },
     update: {},
