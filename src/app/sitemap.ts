@@ -4,9 +4,10 @@ import { prisma } from "@/lib/prisma";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [distritos, noticias] = await Promise.all([
+  const [distritos, noticias, propuestas] = await Promise.all([
     prisma.distrito.findMany({ where: { status: "PUBLICADO" }, select: { slug: true, updatedAt: true } }),
     prisma.noticia.findMany({ where: { status: "PUBLICADO" }, select: { slug: true, updatedAt: true } }),
+    prisma.propuesta.findMany({ where: { status: "PUBLICADO" }, select: { slug: true, updatedAt: true } }),
   ]);
 
   const staticRoutes = [
@@ -35,5 +36,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: n.updatedAt,
   }));
 
-  return [...staticRoutes, ...distritoRoutes, ...noticiaRoutes];
+  const propuestaRoutes = propuestas.map((p) => ({
+    url: `${SITE_URL}/propuestas/${p.slug}`,
+    lastModified: p.updatedAt,
+  }));
+
+  return [...staticRoutes, ...distritoRoutes, ...noticiaRoutes, ...propuestaRoutes];
 }

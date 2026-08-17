@@ -104,20 +104,22 @@ export const ejes: {
   {
     slug: "turismo",
     nombre: "Turismo",
-    resumen: "Poner en valor el patrimonio y la oferta turística de la provincia con seguridad y coordinación.",
+    resumen:
+      "Nasca posee un patrimonio admirado en todo el mundo. Buscamos protegerlo y convertir el turismo en más empleo y oportunidades para familias y emprendedores.",
     bullets: [
-      "Mejorar señalización, accesos y puesta en valor en coordinación con Cultura y el sector turismo.",
-      "Instalar una mesa de seguridad turística con operadores, Policía y autoridades competentes.",
-      "Conectar la oferta cultural con gastronomía, artesanía y emprendimientos locales.",
+      "Gestionar e impulsar el nuevo aeropuerto de Nasca ante las entidades competentes.",
+      "Promover la puesta en valor de Cahuachi, Chauchilla, los acueductos y otros sitios arqueológicos.",
+      "Crear circuitos turísticos que integren patrimonio, naturaleza, gastronomía y cultura.",
     ],
   },
   {
     slug: "seguridad",
     nombre: "Seguridad ciudadana",
-    resumen: "Fortalecer el Serenazgo y la coordinación con la Policía Nacional con protocolos medibles.",
+    resumen:
+      "No podemos hablar de trabajo o turismo si nuestros vecinos no pueden caminar tranquilos por sus calles. Tecnología, Serenazgo fortalecido y coordinación permanente con la PNP.",
     bullets: [
+      "Instalar cámaras de videovigilancia y evaluar drones de patrullaje aéreo con IA en puntos críticos.",
       "Fortalecer Serenazgo con capacitación, equipamiento y protocolos medibles.",
-      "Priorizar cámaras y patrullaje integrado en puntos críticos sustentados por información.",
       "Coordinar permanentemente con la Policía Nacional mediante el COPROSEC.",
     ],
   },

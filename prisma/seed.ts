@@ -150,6 +150,23 @@ async function main() {
       responsable: "Equipo programático",
     },
     {
+      titulo: "Turismo y trabajo para nuestra provincia",
+      slug: "turismo-y-trabajo-nasca",
+      eje: "TURISMO",
+      resumen:
+        "Nasca posee un patrimonio admirado en todo el mundo. Buscamos protegerlo y convertir el turismo en más empleo y oportunidades para familias y emprendedores.",
+      problema:
+        "Nasca posee un patrimonio arqueológico y cultural admirado en todo el mundo, pero necesita protección, puesta en valor y mejores condiciones para que el turismo se traduzca en más empleo y oportunidades para las familias y emprendedores de la provincia.",
+      accion:
+        "Gestionar e impulsar el nuevo aeropuerto de Nasca ante las entidades competentes.\nPromover la puesta en valor de Cahuachi, Chauchilla, los acueductos y otros sitios arqueológicos.\nImpulsar la creación de la Unidad Ejecutora Nasca para fortalecer la investigación, conservación y administración de nuestro patrimonio.\nGestionar la implementación del Plan de Gestión de las Líneas y Geoglifos de Nasca y Palpa.\nPromover un moderno Centro de Interpretación con tecnología y experiencias educativas inmersivas.\nCrear circuitos turísticos que integren patrimonio, naturaleza, gastronomía y cultura para que los visitantes permanezcan más días.",
+      competencia:
+        "La Municipalidad ejecutará las intervenciones dentro de sus competencias y gestionará los proyectos mayores en coordinación con el Ministerio de Cultura, MTC, SBN, Gobierno Regional, sector privado y demás entidades responsables.",
+      etapas:
+        "Gestión ante entidades competentes → puesta en valor del patrimonio → circuitos turísticos y generación de empleo.",
+      fuente: "Material de campaña — propuesta de turismo y trabajo (aportada por el equipo de campaña).",
+      responsable: "Equipo programático",
+    },
+    {
       titulo: "Mesa de seguridad turística",
       slug: "mesa-seguridad-turistica",
       eje: "TURISMO",
@@ -159,6 +176,22 @@ async function main() {
       competencia: "Coordinar con Policía Nacional, Cultura y sector turismo.",
       etapas: "Convocatoria de actores → instalación de la mesa → protocolos conjuntos.",
       fuente: "Plan Estratégico de Campaña — José Luis Sandoval Luque (v. 06.08.2026)",
+      responsable: "Equipo programático",
+    },
+    {
+      titulo: "Seguridad ciudadana: protección inteligente para Nasca",
+      slug: "seguridad-inteligente-drones-camaras",
+      eje: "SEGURIDAD",
+      resumen:
+        "No podemos hablar de trabajo o turismo si nuestros vecinos no pueden caminar tranquilos por sus calles. Proponemos tecnología, un Serenazgo fortalecido y coordinación permanente con la PNP.",
+      problema:
+        "Los problemas de siempre necesitan soluciones de una nueva generación: la inseguridad afecta la vida diaria de los vecinos y limita el desarrollo del trabajo y el turismo en la provincia.",
+      accion:
+        "Instalar cámaras de videovigilancia y evaluar la implementación de drones de patrullaje aéreo con inteligencia artificial, priorizando los puntos críticos de los cinco distritos según mapas del delito e información verificable.\nFortalecer el Serenazgo con capacitación continua y equipamiento adecuado (radios, chalecos), con protocolos de actuación medibles.\nMantener coordinación estratégica y permanente con la Policía Nacional del Perú a través del Comité Provincial de Seguridad Ciudadana (COPROSEC).",
+      competencia:
+        "Gestión directa de la municipalidad en equipamiento y protocolos de Serenazgo; coordinación con la Policía Nacional del Perú a través del COPROSEC. El uso de tecnología con reconocimiento facial debe evaluarse conforme al marco legal de protección de datos personales antes de su implementación.",
+      etapas: "Diagnóstico con mapas del delito → instalación de cámaras y evaluación de drones → protocolos conjuntos con Serenazgo y PNP.",
+      fuente: "Material de campaña — propuesta de seguridad ciudadana (aportada por el equipo de campaña).",
       responsable: "Equipo programático",
     },
     {
@@ -217,28 +250,52 @@ async function main() {
       titulo: "Defensas ribereñas y mantenimiento de caminos rurales",
       slug: "defensas-riberenas-caminos-rurales",
       eje: "AGUA_SANEAMIENTO",
-      resumen: "Gestionar defensas ribereñas y el mantenimiento de caminos rurales en coordinación con las entidades competentes.",
-      problema: "Los caminos rurales y las riberas de los cursos de agua requieren mantenimiento preventivo para proteger la actividad agrícola.",
-      accion: "Gestionar la construcción de defensas ribereñas y el mantenimiento de caminos rurales en coordinación con las entidades competentes.",
-      competencia: "VERIFICAR alcance de competencia municipal y coordinación con Gobierno Regional/ANA antes de publicar como compromiso cerrado.",
-      etapas: "Diagnóstico de tramos críticos → gestión de expediente → ejecución coordinada.",
-      fuente: "Material de campaña (carpeta AGRO/CARRUSEL) — pendiente de contraste con el Plan Estratégico de Campaña.",
+      resumen: "Construir defensas ribereñas definitivas, con estudios y expedientes técnicos, para proteger cultivos, viviendas y caminos ante huaicos y desbordes.",
+      problema: "Los caminos rurales y las riberas de los cursos de agua requieren protección permanente ante huaicos y desbordes que afectan cultivos, viviendas y caminos.",
+      accion: "Construir defensas ribereñas definitivas, con estudios y expedientes técnicos, y mejorar los caminos vecinales para facilitar el traslado y la comercialización de la producción.",
+      competencia: "La Municipalidad ejecutará dentro de sus competencias y gestionará las obras mayores con la ANA, el Gobierno Regional y demás entidades responsables.",
+      etapas: "Estudios y expedientes técnicos → gestión ante entidades competentes → ejecución de obras.",
+      fuente: "Material de campaña — propuesta de agua y obras para agricultores (aportada por el equipo de campaña).",
       responsable: "Equipo programático",
       imagen: "/images/propuestas/defensas-riberenas.webp",
       imagenIlustrativa: true,
-      status: "EN_VERIFICACION",
+    },
+    {
+      titulo: "Agua y obras para nuestros agricultores",
+      slug: "agua-y-obras-agricultores",
+      eje: "AGUA_SANEAMIENTO",
+      resumen:
+        "El campo de Nasca necesita soluciones permanentes, no reparaciones improvisadas. Represas, canales, electrificación de pozos y defensas ribereñas para que la agricultura vuelva a crecer.",
+      problema:
+        "El campo de Nasca necesita soluciones permanentes, no reparaciones improvisadas: la falta de infraestructura de agua y de protección ante huaicos limita la productividad agrícola de la provincia.",
+      accion:
+        "Represar los ríos Aja, Tierras Blancas, Trancas y El Ingenio para asegurar disponibilidad de agua para el campo.\nRehabilitar tomas y bocatomas para asegurar una distribución eficiente del agua.\nLimpiar, reparar y revestir canales de riego para reducir filtraciones y pérdidas.\nElectrificar pozos agrícolas, impulsando sistemas de energía solar donde sean técnicamente viables.\nConstruir defensas ribereñas definitivas, con estudios y expedientes técnicos, para proteger cultivos, viviendas y caminos ante huaicos y desbordes.\nMejorar caminos vecinales para facilitar el traslado y la comercialización de la producción.\nGestionar el acceso de los productores a programas de mejoramiento de la productividad como Procompite, Agrorural y Agroideas, entre otros.",
+      competencia:
+        "La Municipalidad ejecutará las intervenciones dentro de sus competencias y gestionará las obras mayores en coordinación con la ANA, MIDAGRI, Gobierno Regional, juntas de usuarios y demás entidades responsables.",
+      etapas: "Estudios y expedientes técnicos → gestión ante entidades competentes → ejecución de obras de agua, protección y caminos.",
+      fuente: "Material de campaña — propuesta de agua y obras para agricultores (aportada por el equipo de campaña).",
+      responsable: "Equipo programático",
+      imagen: "/images/propuestas/agua-obras-agricultores.webp",
+      imagenIlustrativa: true,
     },
   ];
 
   for (const p of propuestas) {
     const { status, ...rest } = p;
+    const resolvedStatus = status ?? "PUBLICADO";
+    const existing = await prisma.propuesta.findUnique({ where: { slug: p.slug } });
     await prisma.propuesta.upsert({
       where: { slug: p.slug },
-      update: {},
+      update: {
+        ...rest,
+        status: resolvedStatus,
+        publishedAt:
+          resolvedStatus === "PUBLICADO" ? existing?.publishedAt || new Date() : existing?.publishedAt ?? null,
+      },
       create: {
         ...rest,
-        status: status ?? "PUBLICADO",
-        publishedAt: (status ?? "PUBLICADO") === "PUBLICADO" ? new Date() : null,
+        status: resolvedStatus,
+        publishedAt: resolvedStatus === "PUBLICADO" ? new Date() : null,
       },
     });
   }
