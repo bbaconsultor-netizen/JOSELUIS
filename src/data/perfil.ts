@@ -250,9 +250,9 @@ export const pendientes = {
   whatsapp: "[PENDIENTE: WhatsApp autorizado]",
   redes: {
     facebook: "https://www.facebook.com/profile.php?id=61588426972242",
-    instagram: "[PENDIENTE: URL Instagram oficial]",
-    tiktok: "[PENDIENTE: URL TikTok oficial]",
-    youtube: "[PENDIENTE: URL YouTube oficial]",
+    instagram: "https://www.instagram.com/jsandovalfp98/",
+    tiktok: "https://www.tiktok.com/@joseluissandovall53",
+    youtube: "https://www.youtube.com/@JOSELUISSANDOVALLUQUE-e3v",
   },
   direccionLocal: "[PENDIENTE: dirección de local de campaña, si corresponde]",
 };
