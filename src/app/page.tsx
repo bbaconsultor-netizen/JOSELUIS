@@ -35,7 +35,7 @@ export default async function InicioPage() {
               </Button>
             </div>
           </div>
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-primary-900">
+          <div className="relative aspect-[977/1610] w-full overflow-hidden rounded-2xl bg-primary-900">
             <Image
               src="/images/candidato-retrato.webp"
               alt="José Luis Sandoval Luque"
